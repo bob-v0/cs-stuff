@@ -10,6 +10,10 @@ namespace vdm.exams.cs
     {
         static void Main(string[] args)
         {
+            Threading_03.RunMe();
+
+
+            Console.ReadLine();
         }
     }
 }

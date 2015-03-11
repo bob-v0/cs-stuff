@@ -1,0 +1,40 @@
+﻿# Threading
+
+Threading can be found in System.Threading namespace.
+Use Thread.Join method to wait for thread to finish.
+
+There are foreground threads and background threads.
+	Foreground threads are used to keep an application alive.
+Only when all foreground threads end does the CLR shut down the applications.
+	Background threads are then terminated.
+	Can be set by Thread.IsBackground boolean property before the thread starts.	
+
+	Thread instantiation:  var t = new Thread(new ThreadStart(ThreadMethod));
+	This can now be short handed to:  var t = new Thread(ThreadMethod);
+
+	Thread constructor has an overload for a ParameterizedThreadStart delegate.
+	Instantiation:  var t = new Thread(new ParameterizedThreadStart(ThreadMethod));
+	Method signiature:  static void ThreadMethod(object o);
+
+You can use Thread.Abort to cancel a running thread. Because a ThreadAbortException is thrown inside the thread, it can be left in a corrupt state.
+It is better to use a shared variable for both calling and targeted thread.
+
+A Thread has its own call stack that stores all methods that are executed. Local variables are stored on the call stack and are private to the thread.
+A thread can also have its own data that's not a local variable. By marking a field with the ThreadStatic attribute, each thread gets its own copy of a field.
+
+You can use the ThreadLocal<T> class to use a local variable and have it initialized for every thread.
+
+	private static ThreadLocal<int> _field = new ThreadLocal<int>(() => {
+		return Thread.CurrentThread.ManagedThreadId;
+	});       
+
+Access a current thread by its execution context which can be found in the Thread.CurrentThread class. 
+This class also contains the used CultureInfo which keeps track of currency values, string formatting for dates, casing conventions, etc.
+
+When a thread is created, the runtime ensures that the initiating thread's execution context is flowed to the new thread. This way the new thread has the same privilages as the parent.
+This copying of data cost some resources. You can disable this behaviour witht he ExecutionContext.Suppressflow method if said datais not used.
+
+
+
+# Thread pools
+
