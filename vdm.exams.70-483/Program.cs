@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using vdm.exams.cs.Threading;
+using vdm.exams.cs.Tasks;
 
 namespace vdm.exams.cs
 {
@@ -11,9 +12,9 @@ namespace vdm.exams.cs
     {
         static void Main(string[] args)
         {
-            Threading_04.RunMe();
+            Tasks_01.RunMe();
 
-
+            Console.WriteLine(Environment.NewLine + "End. Press ENTER to exit.");
             Console.ReadLine();
         }
     }

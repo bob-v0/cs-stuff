@@ -1,0 +1,17 @@
+﻿# Tasks
+
+Queuing a work item to a thread pool is usefull, but there is no build-in way of knowing when it is finished and what the return value is.
+This is why .NET introduced the concept of Tasks, which is an object that represents some work that should be done.
+The Task can tell you if the work is completed and if the operation returns a result. The Task gives the result.
+
+A Task scheduler is responsible for starting the Task and managing it. By default, the Task Scheduler uses threads from the thread pool to execute the Task.
+
+Tasks can be used to make your application more responsive. It makes it easy to offload work from the main UI thread.
+You can also parallelize work to make use of multiple processors.
+
+It does NOT help with scalability!
+
+
+
+
+

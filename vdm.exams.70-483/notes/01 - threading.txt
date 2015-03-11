@@ -52,6 +52,8 @@ If the thread pool does not have any available threads the work item request get
 The thread pool keeps track of the amount of threads used and scales up and down depending on the availability of threads.
 Do _NOT_ rely on the local state of threads from a thread pool. State can potentially be shared between operations.
 
+Queuing a work item to a thread pool is usefull, but you don't know when it is finished and what the return value is.
+
 See http://msdn.microsoft.com/en-us/library/system.threading.threadpool.aspx for configuration and options.
 
 
