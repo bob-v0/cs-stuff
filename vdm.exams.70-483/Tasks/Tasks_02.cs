@@ -15,16 +15,16 @@ namespace vdm.exams.cs.Tasks
                 return 42;
             });
 
-            t.ContinueWith((i) =>
+            t.ContinueWith(i =>
             {
                 Console.WriteLine("Cancelled");
             }, TaskContinuationOptions.OnlyOnCanceled);
 
-            t.ContinueWith((i) => {
+            t.ContinueWith(i=> {
                 Console.WriteLine("Faulted");
             }, TaskContinuationOptions.OnlyOnFaulted);
 
-            t.ContinueWith((i) =>
+            t.ContinueWith(i =>
             {
                 Console.WriteLine("Completed: " + i.Result);
             }, TaskContinuationOptions.OnlyOnRanToCompletion);
@@ -34,7 +34,7 @@ namespace vdm.exams.cs.Tasks
             var t2 = Task.Run(() =>
             {
                 return 33;
-            }).ContinueWith((s) =>{
+            }).ContinueWith(s =>{
                 Console.WriteLine("I have read: " + s.Result);
             });
 

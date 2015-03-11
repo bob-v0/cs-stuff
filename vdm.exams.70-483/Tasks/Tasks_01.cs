@@ -28,7 +28,7 @@ namespace vdm.exams.cs.Tasks
             var t2 = Task.Run(() =>
             {
                 return 33;
-            }).ContinueWith((s) =>{
+            }).ContinueWith(s =>{
                 Console.WriteLine("I have read: " + s.Result);
             });
 

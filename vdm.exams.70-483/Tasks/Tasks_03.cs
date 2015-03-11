@@ -19,22 +19,23 @@ namespace vdm.exams.cs.Tasks
                 return result;
             });
 
-            parent.ContinueWith((i) =>
+            parent.ContinueWith(i =>
             {
                 Console.WriteLine("Faulted");
             }, TaskContinuationOptions.OnlyOnFaulted);
 
-            parent.ContinueWith((i) =>
+            parent.ContinueWith(i =>
             {
                 Console.WriteLine("Cancelled");
             }, TaskContinuationOptions.OnlyOnCanceled);
 
-            var final = parent.ContinueWith((i) =>
+            parent.Wait();
+
+            parent.ContinueWith(i =>
             {
                 i.Result.ToList().ForEach(t => Console.WriteLine("item: " + t));
             }, TaskContinuationOptions.OnlyOnRanToCompletion);
 
-            final.Wait();
 
             // Sometimes this results in 3x "item: 0" being printed.
             // When changed to a collection List<int> as return type, a collection has modified exception is caught.

@@ -11,7 +11,7 @@ namespace vdm.exams.cs.Threading
     {
         public static void RunMe()
         {
-            ThreadPool.QueueUserWorkItem((s) =>
+            ThreadPool.QueueUserWorkItem(s =>
             {
                 Console.WriteLine("working on a thread from threadpool");
             });
