@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace vdm.exams.cs
+namespace vdm.exams.cs.Threading
 {
     // Should use Thread.Sleep(0) to tell Windows to not finish current time slice for thread.
     // My machine is too fast to generate obvious async output, so i set it to 3 ms.

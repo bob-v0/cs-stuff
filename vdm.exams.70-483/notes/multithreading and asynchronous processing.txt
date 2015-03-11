@@ -37,4 +37,21 @@ This copying of data cost some resources. You can disable this behaviour witht h
 
 
 # Thread pools
+Creating a thread costs resources. Use a thread pool to reuse threads and safe those costs. Instead of letting the thread die, it's being send back to the pool for reuse.
+In .NET you queue a work item to be picked up by the pool:
+
+    ThreadPool.QueueUserWorkItem((s) =>
+    {
+        Console.WriteLine("working on a thread from threadpool");
+    });
+
+A thread pool has a limited number of available threads.
+This can prevent a server from crashing because of too many threads.
+If the thread pool does not have any available threads the work item request gets queued. The service might become unresponsive for a while, but the server lives.
+
+The thread pool keeps track of the amount of threads used and scales up and down depending on the availability of threads.
+Do _NOT_ rely on the local state of threads from a thread pool. State can potentially be shared between operations.
+
+See http://msdn.microsoft.com/en-us/library/system.threading.threadpool.aspx for configuration and options.
+
 
