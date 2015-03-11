@@ -11,7 +11,25 @@ You can also parallelize work to make use of multiple processors.
 
 It does NOT help with scalability!
 
+Creating a task:
+	Task<int> t = Task.Run(() =>
+	{
+		return 42;
+	});
+
+	Console.WriteLine(t.Result);
+
+You can use Task.ContinueWith to do another operation as soon as the task finishes.
+
+ContinueWith has a number of overloads you can use to configure when the continuation will run. This way you can have different continuation methods when an exception happens and the Task is cancelled.
+
+A task can have one or more child task. The parent task is completed when all child tasks are completed.
+
+Create a child task and attach it to parent:
+	...
+	new Task(() => { ... }, TaskCreationOptions.AttachedToParent).Start();
+	...
 
 
-
+You can use Task.WaitAll(Taks[]) to wait for an array of tasks to be completed.
 

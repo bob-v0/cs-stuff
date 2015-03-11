@@ -12,7 +12,7 @@ namespace vdm.exams.cs
     {
         static void Main(string[] args)
         {
-            Tasks_01.RunMe();
+            Tasks_04.RunMe();
 
             Console.WriteLine(Environment.NewLine + "End. Press ENTER to exit.");
             Console.ReadLine();

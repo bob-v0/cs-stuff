@@ -44,6 +44,9 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tasks\Tasks_04.cs" />
+    <Compile Include="Tasks\Tasks_03.cs" />
+    <Compile Include="Tasks\Tasks_02.cs" />
     <Compile Include="Tasks\Tasks_01.cs" />
     <Compile Include="Threading\Threading_04.cs" />
     <Compile Include="Threading\Threading_03.cs" />

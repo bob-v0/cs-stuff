@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace vdm.exams.cs.Tasks
 {
-    class Tasks_01
+    class Tasks_02
     {
         public static void RunMe()
         {
@@ -15,15 +15,21 @@ namespace vdm.exams.cs.Tasks
                 return 42;
             });
 
-            // We can no do other stuff here while the task runs!
+            t.ContinueWith((i) =>
+            {
+                Console.WriteLine("Cancelled");
+            }, TaskContinuationOptions.OnlyOnCanceled);
 
-            // Wait for the task to complete. Like t.Join() on a Thread.
+            t.ContinueWith((i) => {
+                Console.WriteLine("Faulted");
+            }, TaskContinuationOptions.OnlyOnFaulted);
+
+            t.ContinueWith((i) =>
+            {
+                Console.WriteLine("Completed: " + i.Result);
+            }, TaskContinuationOptions.OnlyOnRanToCompletion);
+
             t.Wait();
-
-            // Reading the result will force the thread to wait until the thread has completed
-            // In this case, the wait statement above is not needed.
-            Console.WriteLine(t.Result);
-
 
             var t2 = Task.Run(() =>
             {
