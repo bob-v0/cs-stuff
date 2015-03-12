@@ -32,4 +32,21 @@ Create a child task and attach it to parent:
 
 
 You can use Task.WaitAll(Taks[]) to wait for an array of tasks to be completed.
+See also WhenAll and WaitAny methods as a continuation methods for WaitAll.
 
+
+A task factory can be used to setup a numberous Tasks in an easy way.
+
+	TaskFactory tf = new TaskFactory(TaskCreateOptions.AttachedToParent, TaskContinueationOptions.ExecuteSynchronously);
+
+	tf.StartNew(() => { ... });
+	tf.StartNew(() => { ... });
+	tf.StartNew(() => { ... });
+
+
+# Parallel
+
+Parallel has a number of static methods to concurrently execute a function on every item in sequence.
+Note that for small amounts of work or synchronize access to resources it can hurt performance.
+
+	code: Parallel.For(0, 10, i => { Console.WriteLine(i); });
