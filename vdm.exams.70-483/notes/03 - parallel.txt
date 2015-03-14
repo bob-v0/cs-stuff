@@ -1,0 +1,8 @@
+﻿# Parallel
+
+Parallel has a number of static methods to concurrently execute a function on every item in sequence.
+Note that for small amounts of work or synchronize access to resources it can hurt performance.
+
+	code: Parallel.For(0, 10, i => { Console.WriteLine(i); });
+
+Is in the System.Threading.Tasks namespace.

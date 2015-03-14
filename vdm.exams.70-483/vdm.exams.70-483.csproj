@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Parallel\Parallel_02.cs" />
+    <Compile Include="Parallel\Parallel_01.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tasks\Tasks_04.cs" />
@@ -59,6 +61,7 @@
   <ItemGroup>
     <Content Include="notes\02 - tasks.txt" />
     <Content Include="notes\01 - threading.txt" />
+    <Content Include="notes\03 - parallel.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
