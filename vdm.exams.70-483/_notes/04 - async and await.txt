@@ -1,0 +1,20 @@
+﻿# Async and await
+
+Windows pauses a thread when it does IO operations to let them complete. This causes the CPU not to be waisted on the thread.
+The paused thread cannot serve anything else and new work requires a new thread.
+
+Async code solves this problem. Instead of blocking the thread until the IO operation is finished, you get back a task object that represents the result of the async operation.
+By setting continueation on the task, you can continue when the io is done. Meanwhile, the thread is available for other work.
+
+You use the async keyword to mark a method for asynchronous operations. This way you signal the compiler that something asynchronous is going to happen.
+The compiler responds by transforming your code into a state machine.
+
+Methods mark with async starts running synchronously on the current thread. What it does is allow the method to be split up in multiple parts. Boundries of these parts are marked with await the keyword.
+The await keywords allows you to write code that reads synchronous, but behaves asynchronous. 
+
+Async & await does not improve performance, it does allow for responsiveness.
+
+Doing a CPU bound task is different from doing IO bound tasks. CPU bound always requires some thread to do work, while an IO bound task does not until the IO has finished.
+
+Door ConfigureAwait te zetten op de task wordt er geen synchronizationcontext opgeslagen bij het maken van de task. Dit heeft als gevolg dat de vervolg code op welke willekeurige thread uitgevoerd kan worden.
+Wat performance winst heeft.

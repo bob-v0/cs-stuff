@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AsyncAwait\AsyncAwait_02.cs" />
+    <Compile Include="AsyncAwait\AsyncAwait_01.cs" />
     <Compile Include="Parallel\Parallel_02.cs" />
     <Compile Include="Parallel\Parallel_01.cs" />
     <Compile Include="Program.cs" />
@@ -59,9 +62,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="notes\02 - tasks.txt" />
-    <Content Include="notes\01 - threading.txt" />
-    <Content Include="notes\03 - parallel.txt" />
+    <Content Include="_notes\02 - tasks.txt" />
+    <Content Include="_notes\01 - threading.txt" />
+    <Content Include="_notes\04 - async and await.txt" />
+    <Content Include="_notes\03 - parallel.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
