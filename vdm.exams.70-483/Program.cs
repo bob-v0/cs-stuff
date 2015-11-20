@@ -13,6 +13,7 @@ namespace vdm.exams.cs
     {
         static void Main(string[] args)
         {
+            // Tests here
             Parallel_01.RunMe();
 
             Console.WriteLine(Environment.NewLine + "End. Press ENTER to exit.");
