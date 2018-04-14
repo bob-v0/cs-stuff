@@ -11,7 +11,7 @@ namespace vdm.exams.cs.Parallel
     {
         public static void RunMe()
         {
-            System.Threading.Tasks.Parallel.For(0, 10, i => { Console.WriteLine(i); });
+            System.Threading.Tasks.Parallel.For(0, 10, Console.WriteLine);
 
             // Notice how only an X number of tasks are executed at a time. Not the whole range at once.
             var numbers = Enumerable.Range(0, 50);

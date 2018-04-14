@@ -9,13 +9,13 @@ namespace vdm.exams.cs.AsyncWait
 {
     class AsyncAwait_01
     {
-        static void RunMe()
+        internal static void RunMe()
         {
             string result = DownloadContent().Result;
             Console.WriteLine(result);
         }
 
-        static async Task<string> DownloadContent()
+        internal static async Task<string> DownloadContent()
         {
             using(HttpClient client = new HttpClient())
             {
